@@ -1,61 +1,68 @@
+/* Import TT Norms font family */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: none;
+  font-variant-ligatures: none;
+}
+
+body,
+html {
+  max-width: 100vw;
+  height: 100dvh;
+  overflow-x: hidden;
+  background-color: #090f1e;
+}
+
+body {
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: #090f1e;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 2px;
+  background-color: #4383ff;
+}
+
+/* Custom scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4383ff #090f1e;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
-
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -65,5 +72,137 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* LUNADAX Custom Styles */
+.gradient-primary {
+  background: linear-gradient(90deg, #4e95ff, #376fff);
+}
+
+.gradient-header {
+  background: linear-gradient(180deg, #0d1529, #090f1e);
+}
+
+.gradient-sidebar {
+  background: linear-gradient(90deg, #0d1529, #090f1e);
+}
+
+.gradient-card {
+  background: linear-gradient(270deg, #0d1426 60%, #111a33);
+}
+
+.gradient-hero {
+  background: linear-gradient(270deg, #0d1426 60%, #111a33);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 50px rgba(255, 195, 0, 0.25);
+}
+
+.border-primary {
+  border-color: #4383ff;
+}
+
+.bg-primary-dark {
+  background-color: #090f1e;
+}
+
+.bg-secondary-dark {
+  background-color: #0d1426;
+}
+
+.bg-tertiary-dark {
+  background-color: #111a33;
+}
+
+.text-primary-light {
+  color: #ffffff;
+}
+
+.text-secondary-light {
+  color: #6f7d9d;
+}
+
+.text-accent {
+  color: #4383ff;
+}
+
+.text-success {
+  color: #23b260;
+}
+
+.text-warning {
+  color: #ffc300;
+}
+
+/* Animation for big wins ticker */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#4e95ff] to-[#376fff] text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:opacity-70;
+}
+
+.btn-secondary {
+  @apply bg-transparent border border-white/10 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-white/5;
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(13, 20, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #fefe75, #fed630);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  .gradient-hero {
+    padding: 1.5rem !important;
+    height: 280px !important;
+    text-align: center;
+  }
+
+  .gradient-hero .font-extrabold {
+    font-size: 1rem !important;
+    line-height: normal !important;
   }
 }
