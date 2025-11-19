@@ -34,7 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="antialiased">
-        <Script src="https://api.tempo.build/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js" />
+        {/* <Script src="https://api.tempo.build/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js" /> [deprecated] */}
         <ClientBody>{children}</ClientBody>
       </body>
     </html>

@@ -74,7 +74,7 @@ export function Footer() {
             <FooterLink text="Terms" />
             <FooterLink text="Privacy" />
             <FooterLink text="Fees" />
-            <FooterLink text="Status" />
+            <FooterLink text="About" />
           </div>
           <div className="flex flex-col gap-3.5">
             <div className="font-bold text-base leading-[19px] text-white mb-1.5">
@@ -85,30 +85,6 @@ export function Footer() {
             <FooterLink text="Wallet" />
             <FooterLink text="Settings" />
           </div>
-        </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-white/6 rounded-full mb-[35px]" />
-
-        {/* Crypto Icons */}
-        <div className="flex items-center justify-between mb-[35px]">
-          <CryptoIcon name="Bitcoin" color="#f7931a" />
-          <CryptoIcon name="Ethereum" color="#627eea" />
-          <CryptoIcon name="Tether" color="#26a17b" />
-          <CryptoIcon name="Tron" color="#ef0027" />
-          <CryptoIcon name="Ripple" color="#0596d4" />
-        </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-white/6 rounded-full mb-[35px]" />
-
-        {/* Partners */}
-        <div className="flex items-center justify-around mb-[35px]">
-          <PartnerLogo name="CGF" />
-          <PartnerLogo name="AFA" />
-          <PartnerLogo name="UFC" />
-          <PartnerLogo name="XZ" />
-          <PartnerLogo name="RedBull" />
         </div>
 
         {/* Divider */}
@@ -181,10 +157,28 @@ interface FooterLinkProps {
 }
 
 function FooterLink({ text }: FooterLinkProps) {
+  const getHref = (text: string) => {
+    switch (text) {
+      case "Terms":
+        return "/terms";
+      case "Privacy":
+        return "/privacy";
+      case "Fees":
+        return "/fees";
+      case "About":
+        return "/about";
+      default:
+        return "#";
+    }
+  };
+
   return (
-    <div className="font-bold text-base leading-[19px] text-[#6f7d9d] cursor-pointer transition-colors hover:text-white">
+    <a 
+      href={getHref(text)}
+      className="font-bold text-base leading-[19px] text-[#6f7d9d] cursor-pointer transition-colors hover:text-white"
+    >
       {text}
-    </div>
+    </a>
   );
 }
 

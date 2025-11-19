@@ -1,23 +1,26 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Sidebar } from './Sidebar'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { MobileNav } from './MobileNav'
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { MobileNav } from "./MobileNav";
+import { Sidebar } from "./Sidebar";
+import { useState } from "react";
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function Layout({ children }: LayoutProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <div className="flex w-full min-h-screen max-h-screen bg-[#090f1e]">
       {/* Sidebar - Hidden on mobile */}
       <div className="hidden md:block">
-        <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
+        <Sidebar
+          isOpen={sidebarOpen}
+          onToggle={() => setSidebarOpen(!sidebarOpen)}
+        />
       </div>
 
       {/* Main Content Area */}
@@ -26,9 +29,7 @@ export function Layout({ children }: LayoutProps) {
         <Header />
 
         {/* Main Content */}
-        <main className="flex-1 pb-20 md:pb-0">
-          {children}
-        </main>
+        <main className="flex-1 pb-20 md:pb-0">{children}</main>
 
         {/* Footer */}
         <Footer />
@@ -37,5 +38,5 @@ export function Layout({ children }: LayoutProps) {
       {/* Mobile Navigation */}
       <MobileNav />
     </div>
-  )
+  );
 }
